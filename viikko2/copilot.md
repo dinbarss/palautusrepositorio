@@ -15,11 +15,10 @@ varoituksen.
 
 ## Agentin ratkaisu ja testit
 
-Joukkueen mukaan pistejärjestykseen lajitteleva toiminto tarkistaa myös
-pelaajan kaikki joukkueet, jos joukkuetieto sisältää useamman joukkueen.
-`PlayerStats`-testit käyttävät `StubPlayerReader`-oliota, joten ne eivät tee
-verkkopyyntöjä. Testit kattavat kansalaisuuden, maalintekijät ja joukkueen
-mukaan lajittelun. Kaikki kolme testiä menivät läpi.
+Toteutin joukkueen mukaan pistejärjestykseen lajittelevan toiminnon ja
+testasin sen `StubPlayerReader`-oliolla. Testit eivät tee verkkopyyntöjä,
+ja niissä tarkistetaan myös pelaaja, jonka tiedoissa on useampi joukkue.
+Kaikki kolme `PlayerStats`-testiä menivät läpi.
 
 ## Erot edellisen viikon testeihin
 
@@ -37,7 +36,8 @@ Väliaikaisen kommentin poistamisen jälkeen Pylint antoi 10/10.
 
 ## Muut opit
 
-`uv`-komennot toimivat tässä ympäristössä Ubuntu/WSL-terminaalissa projektin
-juuresta, jossa `pyproject.toml` sijaitsee. Windowsin PowerShell ei löytänyt
-`uv`-komentoa. Testit ja Pylint voi ajaa WSL:ssä komennoilla
-`uv run pytest` ja `uv run pylint src`.
+Opin, että pelaajien hakemisen erottaminen tilastojen muodostamisesta
+helpottaa tilastologiikan testaamista. Stubin avulla lajittelun voi testata
+ennalta tunnetulla aineistolla ilman, että testi riippuu verkkopalvelusta.
+Opin myös, että Copilotin ehdotuksen oikeellisuus kannattaa tarkistaa
+tehtävän vaatimuksia vasten ja varmistaa testeillä.
