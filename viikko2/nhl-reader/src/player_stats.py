@@ -3,7 +3,7 @@ class PlayerStats:
         self.reader = reader
 
     def top_goal_scorers(self, how_many):
-        """Return up to how_many players ordered by goals scored."""
+        """Return the players with the most goals, in descending order."""
         players = self.reader.get_players()
         return sorted(
             players,
