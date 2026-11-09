@@ -37,6 +37,19 @@ def test_top_scorers_by_nationality_returns_players_in_points_order():
     assert [player.name for player in result] == ["Fin Two", "Fin One"]
 
 
+def test_top_goal_scorers_returns_requested_players_by_goal_count():
+    players = [
+        make_player("Lower", "FIN", "DAL", 2, 1),
+        make_player("Highest", "SWE", "SEA", 10, 4),
+        make_player("Middle", "USA", "UTA", 4, 3),
+    ]
+    stats = PlayerStats(StubPlayerReader(players))
+
+    result = stats.top_goal_scorers(2)
+
+    assert [player.name for player in result] == ["Highest", "Middle"]
+
+
 def test_top_scorers_by_team_matches_multi_team_player_and_sorts():
     players = [
         make_player("Lower", "FIN", "DAL", 2, 1),
